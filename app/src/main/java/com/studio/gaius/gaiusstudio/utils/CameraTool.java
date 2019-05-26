@@ -1,4 +1,4 @@
-package com.studio.gaius.gaiusstudio;
+package com.studio.gaius.gaiusstudio.utils;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -12,6 +12,8 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.format.DateFormat;
 import android.util.Log;
+
+import com.studio.gaius.gaiusstudio.global.App;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -1,4 +1,4 @@
-package com.studio.gaius.gaiusstudio;
+package com.studio.gaius.gaiusstudio.global;
 
 import android.app.Application;
 

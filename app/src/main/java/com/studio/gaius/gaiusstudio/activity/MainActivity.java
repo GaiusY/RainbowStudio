@@ -1,4 +1,4 @@
-package com.studio.gaius.gaiusstudio;
+package com.studio.gaius.gaiusstudio.activity;
 
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.studio.gaius.gaiusstudio.utils.CameraTool;
+import com.studio.gaius.gaiusstudio.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
