@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">GaiusStudio</string>
     <string name="takePic">takePic</string>
+    <string name="text_main_res">1080x1080P</string>
 </resources>

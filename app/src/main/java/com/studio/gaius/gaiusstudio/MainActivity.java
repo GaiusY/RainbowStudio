@@ -1,10 +1,13 @@
 package com.studio.gaius.gaiusstudio;
 
+import android.animation.ObjectAnimator;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -17,8 +20,17 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.iv_pic)
     ImageView ivPic;
 
+    @BindView(R.id.tv_spinner)
+    TextImageView tvSpinner;
+
     private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 6;
     private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE2 = 7;
+
+    private static final int MAX_LEVEL = 10000;
+    private Drawable arrowDrawable;
+    private int arrowDrawableResId;
+    private ObjectAnimator arrowAnimator = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +47,21 @@ public class MainActivity extends AppCompatActivity {
         cameraTool.tackPicture(camera);
     }
 
-    @OnClick(R.id.btn_pic)
-    public void onViewClicked() {
-        takePhoto();
+    @OnClick({R.id.btn_pic, R.id.tv_spinner})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btn_pic:
+                takePhoto();
+                break;
+            case R.id.tv_spinner:
+                animateArrow();
+                break;
+        }
+    }
+
+    private void animateArrow() {
+        //tvSpinner.setAnimationRight(getApplicationContext(), false);
+        tvSpinner.setArrowRotate(tvSpinner);
     }
 
     @Override
@@ -63,5 +87,6 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
+
 
 }
