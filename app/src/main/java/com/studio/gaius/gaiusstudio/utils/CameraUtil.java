@@ -1,4 +1,4 @@
-package com.studio.gaius.gaiusstudio;
+package com.studio.gaius.gaiusstudio.utils;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -9,6 +9,8 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.DisplayMetrics;
+
+import com.studio.gaius.gaiusstudio.global.App;
 
 /**
  * Create by yang on 2018/8/23
