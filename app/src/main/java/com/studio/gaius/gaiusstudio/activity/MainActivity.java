@@ -1,8 +1,6 @@
 package com.studio.gaius.gaiusstudio.activity;
 
-import android.animation.ObjectAnimator;
 import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,8 +9,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.studio.gaius.gaiusstudio.utils.CameraTool;
 import com.studio.gaius.gaiusstudio.R;
+import com.studio.gaius.gaiusstudio.TextImageView;
+import com.studio.gaius.gaiusstudio.utils.CameraTool;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,11 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 6;
     private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE2 = 7;
-
-    private static final int MAX_LEVEL = 10000;
-    private Drawable arrowDrawable;
-    private int arrowDrawableResId;
-    private ObjectAnimator arrowAnimator = null;
 
 
     @Override
@@ -63,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void animateArrow() {
-        //tvSpinner.setAnimationRight(getApplicationContext(), false);
-        tvSpinner.setArrowRotate(tvSpinner);
+        tvSpinner.setAnimationRight(getApplicationContext(), tvSpinner, true);
+        //tvSpinner.setArrowRotate(tvSpinner);
     }
 
     @Override

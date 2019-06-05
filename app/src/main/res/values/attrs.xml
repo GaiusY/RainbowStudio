@@ -9,7 +9,7 @@
         <attr name="drawableRightHeight" format="dimension" />
         <attr name="drawableBottomWidth" format="dimension" />
         <attr name="drawableBottomHeight" format="dimension" />
-        <!--<attr name="arrowTint" format="color" />-->
-        <!--<attr name="arrowDrawable" format="reference|color" />-->
+        <attr name="arrowTint" format="color" />
+        <attr name="arrowDrawable" format="reference|color" />
     </declare-styleable>
 </resources>

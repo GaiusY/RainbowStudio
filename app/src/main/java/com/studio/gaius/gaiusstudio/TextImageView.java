@@ -1,10 +1,15 @@
 package com.studio.gaius.gaiusstudio;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
+import android.graphics.drawable.Animatable;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
@@ -19,11 +24,11 @@ public class TextImageView extends AppCompatTextView {
     private int mBottomWidth;
     private int mBottomHeight;
 
-    //private static final int MAX_LEVEL = 10000;
-    //private Drawable arrowDrawable;
-    //private int arrowDrawableResId;
-    //private int arrowDrawableTint;
-    //private ObjectAnimator arrowAnimator = null;
+    private static final int MAX_LEVEL = 10000;
+    private Drawable arrowDrawable;
+    private int arrowDrawableResId;
+    private int arrowDrawableTint;
+    private ObjectAnimator arrowAnimator = null;
 
     public TextImageView(Context context) {
         super(context);
@@ -50,22 +55,24 @@ public class TextImageView extends AppCompatTextView {
         mRightHeight = typedArray.getDimensionPixelOffset(R.styleable.TextImageView_drawableRightHeight, 0);
         mBottomWidth = typedArray.getDimensionPixelOffset(R.styleable.TextImageView_drawableBottomWidth, 0);
         mBottomHeight = typedArray.getDimensionPixelOffset(R.styleable.TextImageView_drawableBottomHeight, 0);
-        //arrowDrawableTint = typedArray.getColor(R.styleable.TextImageView_arrowTint, getResources().getColor(android.R.color.black));
-        //arrowDrawableResId = typedArray.getResourceId(R.styleable.TextImageView_arrowDrawable, R.drawable.arrow);
+        arrowDrawableTint = typedArray.getColor(R.styleable.TextImageView_arrowTint, getResources().getColor(android.R.color.white));
+        arrowDrawableResId = typedArray.getResourceId(R.styleable.TextImageView_arrowDrawable, R.drawable.arrow);
         typedArray.recycle();
         setDrawablesSize();
     }
 
-    /*public void setAnimationRight(Context context, boolean shouldRotateUp) {
+    public void setAnimationRight(Context context, TextImageView view, boolean shouldRotateUp) {
         arrowDrawable = initArrowDrawable(context, arrowDrawableTint);
+        setDrawableBounds(arrowDrawable, getResources().getDimensionPixelOffset(R.dimen.dp_30), getResources().getDimensionPixelOffset(R.dimen.dp_30));
+        view.setCompoundDrawables(null, null, arrowDrawable, null);
         int start = shouldRotateUp ? 0 : MAX_LEVEL;
         int end = shouldRotateUp ? MAX_LEVEL : 0;
         arrowAnimator = ObjectAnimator.ofInt(arrowDrawable, "level", start, end);
         arrowAnimator.setInterpolator(new LinearOutSlowInInterpolator());
         arrowAnimator.start();
-    }*/
+    }
 
-    /*private Drawable initArrowDrawable(Context context, int drawableTint) {
+    private Drawable initArrowDrawable(Context context, int drawableTint) {
         if (arrowDrawableResId == 0) return null;
         Drawable drawable = ContextCompat.getDrawable(context, arrowDrawableResId);
         if (drawable != null) {
@@ -76,13 +83,15 @@ public class TextImageView extends AppCompatTextView {
             }
         }
         return drawable;
-    }*/
+    }
 
     public void setArrowRotate(TextImageView view) {
         if (view == null) return;
-        AnimationDrawable drawable = (AnimationDrawable) getResources().getDrawable(R.drawable.arrow_r);
-        setDrawableBounds(drawable, getResources().getDimensionPixelOffset(R.dimen.dp_20), getResources().getDimensionPixelOffset(R.dimen.dp_20));
+        AnimationDrawable drawable = (AnimationDrawable) getResources().getDrawable(R.drawable.arrow_triangle);
+        setDrawableBounds(drawable, getResources().getDimensionPixelOffset(R.dimen.dp_30), getResources().getDimensionPixelOffset(R.dimen.dp_30));
+        //drawable.setBounds(0, 0, getResources().getDimensionPixelOffset(R.dimen.dp_30), getResources().getDimensionPixelOffset(R.dimen.dp_30));
         view.setCompoundDrawables(null, null, drawable, null);
+        ((Animatable) drawable).start();
     }
 
     private void setDrawablesSize() {
