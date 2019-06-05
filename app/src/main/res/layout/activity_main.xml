@@ -30,7 +30,7 @@
             android:text="@string/takePic" />
     </LinearLayout>
 
-    <com.studio.gaius.gaiusstudio.TextImageView
+    <com.studio.gaius.gaiusstudio.widget.TextImageView
         android:id="@+id/tv_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

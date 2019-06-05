@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.studio.gaius.gaiusstudio.R;
-import com.studio.gaius.gaiusstudio.TextImageView;
+import com.studio.gaius.gaiusstudio.widget.TextImageView;
 import com.studio.gaius.gaiusstudio.utils.CameraTool;
 
 import butterknife.BindView;

@@ -1,4 +1,4 @@
-package com.studio.gaius.gaiusstudio;
+package com.studio.gaius.gaiusstudio.widget;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
@@ -12,6 +12,8 @@ import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
+
+import com.studio.gaius.gaiusstudio.R;
 
 public class TextImageView extends AppCompatTextView {
 
