@@ -25,7 +25,6 @@ public class TextImageView extends AppCompatTextView {
     private int mBottomHeight;
 
     private static final int MAX_LEVEL = 10000;
-    private Drawable arrowDrawable;
     private int arrowDrawableResId;
     private int arrowDrawableTint;
     private ObjectAnimator arrowAnimator = null;
@@ -61,8 +60,8 @@ public class TextImageView extends AppCompatTextView {
         setDrawablesSize();
     }
 
-    public void setAnimationRight(Context context, TextImageView view, boolean shouldRotateUp) {
-        arrowDrawable = initArrowDrawable(context, arrowDrawableTint);
+    public void showAnimationRight(Context context, TextImageView view, boolean shouldRotateUp) {
+        Drawable arrowDrawable = initArrowDrawable(context, arrowDrawableTint);
         setDrawableBounds(arrowDrawable, getResources().getDimensionPixelOffset(R.dimen.dp_30), getResources().getDimensionPixelOffset(R.dimen.dp_30));
         view.setCompoundDrawables(null, null, arrowDrawable, null);
         int start = shouldRotateUp ? 0 : MAX_LEVEL;
@@ -70,6 +69,10 @@ public class TextImageView extends AppCompatTextView {
         arrowAnimator = ObjectAnimator.ofInt(arrowDrawable, "level", start, end);
         arrowAnimator.setInterpolator(new LinearOutSlowInInterpolator());
         arrowAnimator.start();
+    }
+
+    public void cancelAnimation() {
+        if (arrowAnimator != null) arrowAnimator.cancel();
     }
 
     private Drawable initArrowDrawable(Context context, int drawableTint) {

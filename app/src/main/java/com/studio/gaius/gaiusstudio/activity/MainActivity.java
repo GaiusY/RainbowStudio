@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void animateArrow() {
-        tvSpinner.setAnimationRight(getApplicationContext(), tvSpinner, true);
+        tvSpinner.showAnimationRight(getApplicationContext(), tvSpinner, true);
         //tvSpinner.setArrowRotate(tvSpinner);
     }
 
